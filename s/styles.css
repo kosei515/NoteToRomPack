@@ -1,0 +1,217 @@
+/*========= 上部固定させるためのCSS ===============*/
+#header{
+	height: 75px;/*高さ指定*/
+	width:100%;/*横幅指定*/
+	/*以下はレイアウトのためのCSS*/
+	
+	justify-content: space-between;
+	align-items: center;
+	background:#ecfcff;
+	text-align: center;
+	padding: 20px;
+
+	position: fixed;/*fixedを設定して固定*/
+  z-index: 999;/*最前面へ*/
+  top:0;/*位置指定*/
+  left:0;/*位置指定*/
+}
+#header2{
+	height: 28px;/*高さ指定*/
+	width:100%;/*横幅指定*/
+	/*以下はレイアウトのためのCSS*/
+	
+	justify-content: space-between;
+	align-items: center;
+	background:#fdffec;
+	text-align: center;
+	padding: 3px;
+
+	position: fixed;/*fixedを設定して固定*/
+  z-index: 999;/*最前面へ*/
+  top:112px;/*位置指定*/
+  left:0;/*位置指定*/
+}
+.tabr{
+  display: flex;
+  justify-content: center;
+}
+
+.tab {
+  
+    min-width: 750px;
+    margin: 0 auto;
+    margin-top: 140px;
+    margin-bottom: 100px;
+  }
+  
+  /* タブメニュー */
+  .tab__menu {
+    display: flex;
+    align-items: flex-end; /* メニューを下揃え */
+    justify-content: center;
+    min-height: 50px; /* メニュー切替時にタブがズレないように */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .tab__menu-item {
+    list-style: none;
+    width: 150px;
+    padding: 12px 5px; /* メニューに高さを付ける */
+    text-align: center;
+    margin-right: 6px;
+    background-color: #cdcdcd;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    transition: all .3s; /* アニメーション */
+  }
+
+  .tab__menu-item:last-of-type {
+    margin-right: 0px;
+  }
+  
+  /* is-activeがついている時のスタイル */
+  .tab__menu-item.is-active {
+    background-color: rgba(48, 172, 249);
+    color: #ffffff;
+    padding: 12px 5px;
+  }
+  
+  /* タブパネル */
+  .tab__panel {
+   width: 100%;
+  }
+  
+  .tab__panel-box {
+    min-height: 800px;
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+  
+  .tab__panel-box001 {
+    background-color: rgb(254, 248, 238);
+    table {
+      margin: auto;
+      background-color: #ffe;
+      border-collapse: collapse;
+    }
+    table th {
+      background-color: #eee;
+    }
+    table th, table td {
+      border: solid 1px #aaa;
+      padding:6px;
+    }
+    display: none;
+  }
+  
+  .tab__panel-box002 {
+    table {
+      margin: auto;
+        background-color: #ffe;
+        border-collapse: collapse;
+      }
+      table th {
+        background-color: #eee;
+      }
+      table th, table td {
+        border: solid 1px #aaa;
+        padding:6px;
+      }
+    display: none;
+  }
+  
+  .tab__panel-box003 {
+    table {
+      margin: auto;
+        background-color: #ffe;
+        border-collapse: collapse;
+      }
+      table th {
+        background-color: #eee;
+      }
+      table th, table td {
+        border: solid 1px #aaa;
+        padding:6px;
+      }
+    display: none;
+  }
+
+  .tab__panel-box004 {
+    table {
+      margin: auto;
+        background-color: #ffe;
+        border-collapse: collapse;
+      }
+      table th {
+        background-color: #eee;
+      }
+      table th, table td {
+        border: solid 1px #aaa;
+        padding:6px;
+      }
+    display: none;
+  }
+  
+  /* is-showがついている時のスタイル */
+  .tab__panel-box.is-show {
+    display: block;
+  }
+
+  input:invalid{
+    background-color:lightpink;
+  }
+
+  .flexbox {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  #ddarea{
+    width:200px;
+    height:150px;
+    border:1px dotted #888;
+    background: #efef;
+    margin: 1em auto;
+}
+#ddarea.ddefect{
+    border:1px solid #000;
+}
+#txtarea{
+    padding:5px;
+    width: 90%;
+    height: 150px;
+    overflow: auto;
+    background: black;
+    color:white;
+    margin: 1em auto;
+}
+.txtareawrap{
+    text-align:center;
+    margin-bottom:1em;
+}
+
+.playsys {
+  width: 10em;
+  height:3em;
+}
+.consys {
+  width: 8em;
+  height:2em;
+}
+
+.linem {
+  height: 45px;;
+  display: flex;
+  align-items: center;
+}
+#listb::-webkit-calendar-picker-indicator {
+    width: 2px;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+  
+}

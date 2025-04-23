@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoteToRomP</title>
+  <!-- スタイルシートを読み込む -->
+  <link rel="stylesheet" href="./s/styles.css">
+</head>
+<body>
+  
+  <div class="tab">
+    <header id="header"><div class="tabr">
+    <input type="button" id="play" class="playsys" value="Play" /><input type="button" id="stop" class="playsys" value="Stop" /><input type="button" id="Sreset" class="playsys" value="Sreset" />
+    <div class="flexbox"><div><input type="checkbox" id="lightup" checked>Light Up</div><div><input type="checkbox" id="Ron" checked>rhythm on</div></div>
+    </div>
+    <ul class="tab__menu">
+      <li class="tab__menu-item is-active" data-tab="01">Main</li>
+      <li class="tab__menu-item" data-tab="02">NoteM</li>
+      <li class="tab__menu-item" data-tab="03">NoteS</li>
+      <li class="tab__menu-item" data-tab="04">CodeR</li>
+    </ul>
+   </header>
+    <div class="tab__panel">
+      <div class="tab__panel-box tab__panel-box001 is-show" data-panel="01">
+        <div id="header2"><div id="byteT"></div></div>
+        <div id="ddarea" ><p id="pp">Drop File</p><input type="file" id="filein"/></div>
+        <div class="tabr"><select title="play on selected soundfont" id="soundfonts">
+          <option disabled>Select soundfont</option></select>
+        <input title="Select SoundFont" type="file" id="inputSoundFontFile" accept=".sf2, .sf3"></div>
+        <div class="tabr"><div class="midi-output">
+          <label>MIDI OUTPUT:</select><input type="checkbox" id="Mout"><select class="output" id="MoutS"><input type="button" id="MidiL" onclick="MidiL()" value="Load" />  SoundFont Out:<input type="checkbox" id="Sout" checked></label>
+          <!-- /.midi-output --></div></div>
+          <br>
+          <table id="tbl4" class="tbl">
+            <tbody id="tbo4">
+              <tr>
+                  <th>No</th>
+                  <th>Name</th>
+                  <th></th>
+                  <th></th>
+                  <th>NoteM</th>
+                  <th>NoteS</th>
+                  <th>CodeR</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </tbody>
+               </table>
+               <div class="tabr"><input type="button" onclick="Seladd()" value="NewSong Add" /><input type="button" id="binout" value="Save Bin" /><input type="checkbox" id="binre"><input type="button" id="download" value="Save Select txt" /></div>
+          <div class="txtareawrap">
+            <textarea id="txtarea"></textarea>
+            </div>
+            <input type="button" onclick="jsave()" value="jsave" />
+      </div>
+      
+      
+      <div class="tab__panel-box tab__panel-box002" data-panel="02">
+        <div class="tabr"><textarea id="p1" type="text" style="font-size: 16px; width: 600px; height: 300px;"></textarea></div>
+        <div id="header2"><div class="tabr"><input type="button" id="ti1" class="consys" value="textIn" /><input type="button" id="Tcon1" class="consys" onclick="contime(1)" value="NoteLenght" /><input type="button" id="con1" class="consys" onclick="timep(1)" value="Convert" />Pitch<input type="button" id="pitch" class="" onclick="pitch(1,0)" value="↓" /><input type="button" id="pitch" class="" onclick="pitch(1,1)" value="↑" />
+          <span id="byte1"></span></div></div>
+        <table id="tbl1" class="tbl">
+          <tbody id="tbo1">
+            <tr>
+                <th>No</th>
+                <th>D1</th>
+                <th>D2</th>
+                <th>D3</th>
+                <th></th>
+                <th>N1</th>
+                <th>N2</th>
+                <th>N3</th>
+                <th></th>
+                <th></th>
+                <th>Time</th>
+                <th>R1</th>
+                <th>R2</th>
+                <th>R3</th>
+                <th>R4</th>
+                <th>R5</th>
+                <th>R6</th>
+                <th>R7</th>
+                <th>8</th>
+                <th>9</th>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="tab__panel-box tab__panel-box003" data-panel="03">
+        <div class="tabr"><textarea id="p2" type="text" style="font-size: 16px; width: 600px; height: 300px;"></textarea></div>
+        <div id="header2"><div class="tabr"><input type="button" id="ti2" class="consys" value="textIn" /><input type="button" id="Tcon2" class="consys" onclick="contime(2)" value="NoteLenght" /><input type="button" id="con2" class="consys" onclick="timep(2)" value="Convert" />Pitch<input type="button" id="pitch" class="" onclick="pitch(2,0)" value="↓" /><input type="button" id="pitch" class="" onclick="pitch(2,1)" value="↑" />
+        <span id="byte2"></span></div></div>
+        <table id="tbl2" class="tbl">
+          <tbody id="tbo2">
+            <tr>
+                <th>No</th>
+                <th>D1</th>
+                <th>D2</th>
+                <th>D3</th>
+                <th></th>
+                <th>N1</th>
+                <th>N2</th>
+                <th>N3</th>
+                <th></th>
+                <th></th>
+                <th>Time</th>
+                <th>R1</th>
+                <th>R2</th>
+                <th>R3</th>
+                <th>R4</th>
+                <th>R5</th>
+                <th>R6</th>
+                <th>R7</th>
+                <th>8</th>
+                <th>9</th>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="tab__panel-box tab__panel-box004" data-panel="04">
+        <div class="tabr"><textarea id="p3" type="text" style="font-size: 16px; width: 600px; height: 300px;"></textarea></div>
+        <div id="header2"><div class="tabr"><input type="button" id="ti3" class="consys" value="textIn" /><input type="button" id="con3" class="consys" onclick="timep(3)" value="Convert" />Pitch<input type="button" id="pitch" class="" onclick="pitch(3,0)" value="↓" /><input type="button" id="pitch" class="" onclick="pitch(3,1)" value="↑" />
+        <select title="Delay Code Sound" id="delaycode"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
+        <span id="byte3"></span></div></div>
+        <table id="tbl3" class="tbl">
+          <tbody id="tbo3">
+            <tr>
+                <th>No</th>
+                <th>D1</th>
+                <th>D2</th>
+                <th></th>
+                <th>N1</th>
+                <th>N2</th>
+                <th></th>
+                <th></th>
+                <th>Time</th>
+                <th>R1</th>
+                <th>R2</th>
+                <th>R3</th>
+                <th>R4</th>
+                <th>R5</th>
+                <th>R6</th>
+                <th>R7</th>
+                <th>8</th>
+                <th>9</th>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <datalist id="noS0">
+  </datalist>
+  <datalist id="noS1">
+    <option value="10:rest"></option>
+    <option value="xx:Note"></option>
+    <option value="60:Timbre"></option>
+    <option value="20:add"></option>
+    <option value="0F:Repeat"></option>
+    <option value="50:Effect"></option>
+    <option value="F0:End"></option>
+  </datalist>
+  <datalist id="noS2">
+    <option value="2"></option>
+    <option value="3"></option>
+    <option value="4"></option>
+    <option value="5"></option>
+    <option value="6"></option>
+  </datalist>
+  <datalist id="noS3">
+    <option value="10:rest"></option>
+    <option value="xx:Code"></option>
+    <option value="F1:NonCode"></option>
+    <option value="50:Rhythm"></option>
+    <option value="60:Fill-in"></option>
+    <option value="20:add"></option>
+    <option value="90:C-Reset"></option>
+    <option value="0F:Repeat"></option>
+    <option value="C0:Tempo"></option>
+    <option value="80:Count"></option>
+    <option value="F0:End"></option>
+  </datalist>
+  <datalist id="noS4">
+    <option value="C"></option>
+    <option value="C#/Db"></option>
+    <option value="D"></option>
+    <option value="D#/Eb"></option>
+    <option value="E"></option>
+    <option value="F"></option>
+    <option value="F#/Gb"></option>
+    <option value="G"></option>
+    <option value="G#/Ab"></option>
+    <option value="A"></option>
+    <option value="A#/Bb"></option>
+    <option value="B"></option>
+  </datalist>
+  <datalist id="noS5">
+    <option value="0:0/maj"></option>
+    <option value="m:1/min"></option>
+    <option value="7:2/7th"></option>
+    <option value="m7:3/min7"></option>
+    <option value="M7:4/maj7"></option>
+    <option value="6:5/6th"></option>
+    <option value="m7-5:6/min7-5"></option>
+    <option value="sus4:7/sus4"></option>
+    <option value="dim:8/dim"></option>
+    <option value="aug:9/aug"></option>
+    <option value="m6:A/min6"></option>
+    <option value="-5:B/-5"></option>
+    <option value="-9:C/-9"></option>
+    <option value="9:D/9th"></option>
+    <option value="-:E/bass"></option>
+  </datalist>
+  <datalist id="noS6">
+    <option value="0F:Start"></option>
+    <option value="1F:Repeat"></option>
+    <option value="8F:Re1"></option>
+    <option value="9F:Re2"></option>
+    <option value="AF:Re3"></option>
+    <option value="BF:Re4"></option>
+    <option value="CF:Re5"></option>
+    <option value="DF:Re6"></option>
+    <option value="EF:Re7"></option>
+    <option value="FF:Re8"></option>
+  </datalist>
+  <datalist id="noS7">
+    <option value="00:Piano"></option>
+    <option value="10:Harpsichord"></option>
+    <option value="20:Organ"></option>
+    <option value="30:Violin"></option>
+    <option value="40:Flute"></option>
+    <option value="50:Clarinet"></option>
+    <option value="60:Trumpet"></option>
+    <option value="70:Celesta"></option>
+    <option value="80:non-Piano"></option>
+    <option value="90:non-Harpsichord"></option>
+    <option value="A0:non-Organ"></option>
+    <option value="B0:non-Violin"></option>
+    <option value="C0:non-Flute"></option>
+    <option value="D0:non-Clarinet"></option>
+    <option value="E0:non-Trumpet"></option>
+    <option value="F0:non-Celesta"></option>
+  </datalist>
+  <datalist id="noS8">
+    <option value="00:Rock"></option>
+    <option value="01:Rock'n roll"></option>
+    <option value="10:Disco"></option>
+    <option value="11:16 beat"></option>
+    <option value="20:Swing 2beat"></option>
+    <option value="21:Swing 4beat"></option>
+    <option value="30:Samba"></option>
+    <option value="31:Latin Rock"></option>
+    <option value="40:Bossa nova"></option>
+    <option value="41:Beguine"></option>
+    <option value="50:Tango"></option>
+    <option value="51:March"></option>
+    <option value="60:Slow rock"></option>
+    <option value="61:Ballad"></option>
+    <option value="70:Waltz"></option>
+    <option value="71:Rock Waltz"></option>
+    <option value="80:non-Rock"></option>
+    <option value="81:non-Rock'n roll"></option>
+    <option value="90:non-Disco"></option>
+    <option value="91:non-16 beat"></option>
+    <option value="A0:non-Swing 2beat"></option>
+    <option value="A1:non-Swing 4beat"></option>
+    <option value="B0:non-Samba"></option>
+    <option value="B1:non-Latin Rock"></option>
+    <option value="C0:non-Bossa nova"></option>
+    <option value="C1:non-Beguine"></option>
+    <option value="D0:non-Tango"></option>
+    <option value="D1:non-March"></option>
+    <option value="E0:non-Slow rock"></option>
+    <option value="E1:non-Ballad"></option>
+    <option value="F0:non-Waltz"></option>
+    <option value="F1:non-Rock Waltz"></option>
+  </datalist>
+  <datalist id="noS9">
+    <option value=" :Effect"></option>
+  </datalist>
+  <datalist id="noS10">
+    <option value="2:  12連/dodecuplet"></option>
+    <option value="3:  32分/thirty-second"></option>
+    <option value="4:  6連/sixtuplet"></option>
+    <option value="6:  16分/sixbteenth"></option>
+    <option value="8:  3連/triplet"></option>
+    <option value="9:  付点16分/dotted sixteenth"></option>
+    <option value="12: 8分/eighth"></option>
+    <option value="16: 2拍3連/quarter triplet"></option>
+    <option value="18: 付点8分/dotted eighth"></option>
+    <option value="24: 4分/quadruple"></option>
+    <option value="32: 4拍3連/half triplet"></option>
+    <option value="36: 付点4分/dotted quadruple"></option>
+    <option value="48: 2分/half"></option>
+    <option value="72: 付点2分/dotted half"></option>
+    <option value="96: 全 /whole"></option>
+    <option value="144:付点全/dotted whole"></option>
+    <option value="192:倍全/double whole"></option>
+    <option value="288:3倍全/triple whole"></option>
+    <option value="384:4倍全/quadruple whole"></option>
+  </datalist>
+  <datalist id="noS11">
+    <option value="80:Rock"></option>
+    <option value="81:Rock'n roll"></option>
+    <option value="90:Disco"></option>
+    <option value="91:16 beat"></option>
+    <option value="A0:Swing 2beat"></option>
+    <option value="A1:Swing 4beat"></option>
+    <option value="B0:Samba"></option>
+    <option value="B1:Latin Rock"></option>
+    <option value="C0:Bossa nova"></option>
+    <option value="C1:Beguine"></option>
+    <option value="D0:Tango"></option>
+    <option value="D1:March"></option>
+    <option value="E0:Slow rock"></option>
+    <option value="E1:Ballad"></option>
+    <option value="F0:Waltz"></option>
+    <option value="F1:Rock Waltz"></option>
+  </datalist>
+  <datalist id="noS12">
+    <option value="06:BPM=52"></option>
+    <option value="08:BPM=54"></option>
+    <option value="0A:BPM=56"></option>
+    <option value="0C:BPM=58"></option>
+    <option value="0E:BPM=60"></option>
+    <option value="10:BPM=62"></option>
+    <option value="12:BPM=66"></option>
+    <option value="14:BPM=70"></option>
+    <option value="16:BPM=74"></option>
+    <option value="18:BPM=78"></option>
+    <option value="1A:BPM=82"></option>
+    <option value="1C:BPM=86"></option>
+    <option value="1E:BPM=90"></option>
+    <option value="20:BPM=98"></option>
+    <option value="22:BPM=106"></option>
+    <option value="24:BPM=118"></option>
+    <option value="26:BPM=126"></option>
+    <option value="28:BPM=136"></option>
+    <option value="2A:BPM=148"></option>
+    <option value="2C:BPM=162"></option>
+    <option value="2E:BPM=176"></option>
+    <option value="30:BPM=188"></option>
+  </datalist>
+  
+  <!-- スクリプトを読み込む -->
+  <script src="./p/libfluidsynth-2.3.0-with-libsndfile.min.js"></script>
+  <script src="./p/js-synthesizer.min.js"></script>
+  <script src="./p/jquery-3.7.1.min.js"></script>
+  <script src="./s/index.js"></script>
+  <script src="./s/player.js"></script>
+  <script src="./s/filecon.js"></script>
+</body>
+</html>
